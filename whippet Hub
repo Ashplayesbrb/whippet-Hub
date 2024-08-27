@@ -1,0 +1,521 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local UICorner_2 = Instance.new("UICorner")
+local FarmFrame = Instance.new("ScrollingFrame")
+local EquipDw = Instance.new("TextButton")
+local Farm = Instance.new("TextButton")
+local AntiLag = Instance.new("TextButton")
+local AntiAfk = Instance.new("TextButton")
+local MiscFrame = Instance.new("ScrollingFrame")
+local TpSafeZone = Instance.new("TextButton")
+local AntiHit = Instance.new("TextButton")
+local ToggleNight = Instance.new("TextButton")
+local StrengthSpy = Instance.new("TextButton")
+local InfoFrame = Instance.new("Frame")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+local FarmPageButton = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local InfoPageButton = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local MiscPageButton = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local Open = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = ScreenGui
+MainFrame.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MainFrame.BorderSizePixel = 0
+MainFrame.Position = UDim2.new(0.318998724, 0, 0.368090451, 0)
+MainFrame.Size = UDim2.new(0, 376, 0, 267)
+MainFrame.Active = true
+MainFrame.Draggable = true
+
+UICorner.Parent = MainFrame
+
+TextLabel.Parent = MainFrame
+TextLabel.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Size = UDim2.new(0, 376, 0, 50)
+TextLabel.Font = Enum.Font.Bangers
+TextLabel.Text = "Whippet Hub"
+TextLabel.TextColor3 = Color3.fromRGB(26, 218, 170)
+TextLabel.TextSize = 25.000
+
+UICorner_2.Parent = TextLabel
+
+FarmFrame.Name = "FarmFrame"
+FarmFrame.Parent = MainFrame
+FarmFrame.Active = true
+FarmFrame.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+FarmFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+FarmFrame.BorderSizePixel = 0
+FarmFrame.Position = UDim2.new(0.348404258, 0, 0.299625456, 0)
+FarmFrame.Size = UDim2.new(0, 231, 0, 168)
+FarmFrame.Visible = false
+
+EquipDw.Name = "Equip Dw"
+EquipDw.Parent = FarmFrame
+EquipDw.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+EquipDw.BorderColor3 = Color3.fromRGB(0, 0, 0)
+EquipDw.BorderSizePixel = 0
+EquipDw.Position = UDim2.new(0.0562770553, 0, 0.0385093689, 0)
+EquipDw.Size = UDim2.new(0, 87, 0, 37)
+EquipDw.Font = Enum.Font.Bangers
+EquipDw.Text = "Equip Dw"
+EquipDw.TextColor3 = Color3.fromRGB(26, 218, 170)
+EquipDw.TextSize = 24.000
+EquipDw.MouseButton1Click:Connect(function()
+	if EquipDw.Text == ("Equip DW") then
+		EquipDw.Text = ("DW Equipped") else
+		EquipDw.Text =("Equip DW") 
+	end
+	while EquipDw.Text == ("DW Equipped") do
+		wait(0.01)
+		for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+			if  v.Name == ("Double Weight")  then
+				v.Parent = game.Players.LocalPlayer.Character
+			end
+		end
+	end
+	wait()
+	for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+		if  v.Name == ("Double Weight")  then
+			v.Parent = game.Players.LocalPlayer.Backpack
+		end
+	end
+end)
+
+Farm.Name = "Farm"
+Farm.Parent = FarmFrame
+Farm.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+Farm.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Farm.BorderSizePixel = 0
+Farm.Position = UDim2.new(0.541125536, 0, 0.0364141911, 0)
+Farm.Size = UDim2.new(0, 88, 0, 37)
+Farm.Font = Enum.Font.Bangers
+Farm.Text = "Farm"
+Farm.TextColor3 = Color3.fromRGB(26, 218, 170)
+Farm.TextSize = 24.000
+Farm.MouseButton1Click:Connect(function()
+	if Farm.Text == ("Farm") then
+		Farm.Text = ("Stop") else
+		Farm.Text =("Farm") 
+	end
+	while Farm.Text == ("Stop") do
+		wait(0.3)
+		for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+			if v:IsA("Tool") and v.Name == ("Double Weight") or v.Name == ("Dumbell") then
+				v:Activate()
+			end
+		end
+	end
+end)
+
+AntiLag.Name = "AntiLag"
+AntiLag.Parent = FarmFrame
+AntiLag.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+AntiLag.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AntiLag.BorderSizePixel = 0
+AntiLag.Position = UDim2.new(0.0562770553, 0, 0.15145947, 0)
+AntiLag.Size = UDim2.new(0, 88, 0, 37)
+AntiLag.Font = Enum.Font.Bangers
+AntiLag.Text = "AntiLag"
+AntiLag.TextColor3 = Color3.fromRGB(26, 218, 170)
+AntiLag.TextSize = 24.000
+AntiLag.MouseButton1Down:connect(function()
+	AntiLag.MouseButton1Click:Connect(function()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.ProteinBuy:Destroy()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.OpenShop:Destroy()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.OpenReb:Destroy()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.ImageLabel:Destroy()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.OpenPack:Destroy()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.PopSound:Destroy()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.BlackMarket:Destroy()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.LiftRemind:Destroy()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.MuscleGain:Destroy()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.RebFrame:Destroy()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.ShopFrame:Destroy()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.OpenSkins:Destroy()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.Bar:Destroy()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.StrengthHolder.ImageLabel:Destroy()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.StrengthHolder.TextLabel.TextLabel:Destroy()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.CashHolder:Destroy()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.CashButton:Destroy()
+		game:GetService("Players").LocalPlayer.PlayerGui.HUD.Frame.RumbleHolder:Destroy()
+	end)
+end)
+
+AntiAfk.Name = "AntiAfk"
+AntiAfk.Parent = FarmFrame
+AntiAfk.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+AntiAfk.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AntiAfk.BorderSizePixel = 0
+AntiAfk.Position = UDim2.new(0.541125536, 0, 0.154043838, 0)
+AntiAfk.Size = UDim2.new(0, 88, 0, 37)
+AntiAfk.Font = Enum.Font.Bangers
+AntiAfk.Text = "Antiafk"
+AntiAfk.TextColor3 = Color3.fromRGB(26, 218, 170)
+AntiAfk.TextSize = 24.000
+AntiAfk.MouseButton1Down:connect(function()
+	wait(0.5)local ba=Instance.new("ScreenGui")
+	local ca=Instance.new("TextLabel")local da=Instance.new("Frame")
+	local _b=Instance.new("TextLabel")local ab=Instance.new("TextLabel")ba.Parent=game.CoreGui
+	ba.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;ca.Parent=ba;ca.Active=true
+	ca.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ca.Draggable=true
+	ca.Position=UDim2.new(0.698610067,0,0.098096624,0)ca.Size=UDim2.new(0,370,0,52)
+	ca.Font=Enum.Font.SourceSansSemibold;ca.Text="Anti AFK Script"ca.TextColor3=Color3.new(0,1,1)
+	ca.TextSize=22;da.Parent=ca
+	da.BackgroundColor3=Color3.new(0.196078,0.196078,0.196078)da.Position=UDim2.new(0,0,1.0192306,0)
+	da.Size=UDim2.new(0,370,0,107)_b.Parent=da
+	_b.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)_b.Position=UDim2.new(0,0,0.800455689,0)
+	_b.Size=UDim2.new(0,370,0,21)_b.Font=Enum.Font.Arial;_b.Text="made by ur mom "
+	_b.TextColor3=Color3.new(0,1,1)_b.TextSize=20;ab.Parent=da
+	ab.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ab.Position=UDim2.new(0,0,0.158377,0)
+	ab.Size=UDim2.new(0,370,0,44)ab.Font=Enum.Font.ArialBold;ab.Text="Status: Active"
+	ab.TextColor3=Color3.new(0,1,1)ab.TextSize=20;local bb=game:service'VirtualUser'
+	game:service'Players'.LocalPlayer.Idled:connect(function()
+		bb:CaptureController()bb:ClickButton2(Vector2.new())
+		ab.Text="Roblox tried to kick u but i kicked him instead"wait(2)ab.Text="Status : Active"end)
+end)
+
+MiscFrame.Name = "MiscFrame"
+MiscFrame.Parent = MainFrame
+MiscFrame.Active = true
+MiscFrame.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+MiscFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MiscFrame.BorderSizePixel = 0
+MiscFrame.Position = UDim2.new(0.34799999, 0, 0.300000012, 0)
+MiscFrame.Size = UDim2.new(0, 231, 0, 168)
+MiscFrame.Visible = false
+
+TpSafeZone.Name = "Tp SafeZone"
+TpSafeZone.Parent = MiscFrame
+TpSafeZone.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+TpSafeZone.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TpSafeZone.BorderSizePixel = 0
+TpSafeZone.Position = UDim2.new(0.0606060624, 0, 0.0264347624, 0)
+TpSafeZone.Size = UDim2.new(0, 86, 0, 40)
+TpSafeZone.Font = Enum.Font.Bangers
+TpSafeZone.Text = "Tp SafeZone"
+TpSafeZone.TextColor3 = Color3.fromRGB(26, 218, 170)
+TpSafeZone.TextSize = 20.000
+TpSafeZone.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1935.33301, 146.006165, -5322.47803, 0.99905473, -1.51493107e-09, -0.0434705131, 3.37854189e-11, 1, -3.40731567e-08, 0.0434705131, 3.40394806e-08, 0.99905473)
+end)
+
+AntiHit.Name = "AntiHit"
+AntiHit.Parent = MiscFrame
+AntiHit.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+AntiHit.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AntiHit.BorderSizePixel = 0
+AntiHit.Position = UDim2.new(0.580086589, 0, 0.0263335817, 0)
+AntiHit.Size = UDim2.new(0, 86, 0, 40)
+AntiHit.Font = Enum.Font.Bangers
+AntiHit.Text = "Anti Hit"
+AntiHit.TextColor3 = Color3.fromRGB(26, 218, 170)
+AntiHit.TextSize = 20.000
+AntiHit.MouseButton1Down:connect(function()
+	for i = 1,1 do 
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Made By Newj/Alan",
+			Text = "Fuck Yall Skids",
+			Icon = "",
+			Duration = 1,
+		})
+	end
+
+	local InsertedObjects = Instance.new("ScreenGui")
+	local Gradient = Instance.new("Frame")
+	local UIGradient = Instance.new("UIGradient")
+	local UICorner = Instance.new("UICorner")
+	local LoopDetector = Instance.new("TextLabel")
+	local player = Instance.new("TextLabel")
+
+	--Properties:
+
+	InsertedObjects.ResetOnSpawn = false
+	InsertedObjects.Name = "InsertedObjects"
+	InsertedObjects.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+	Gradient.Name = "Gradient"
+	Gradient.Parent = InsertedObjects
+	Gradient.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Gradient.BorderColor3 = Color3.fromRGB(27, 42, 53)
+	Gradient.BorderSizePixel = 0
+	Gradient.Position = UDim2.new(0.5, 0, 0.524539888, 0)
+	Gradient.Size = UDim2.new(0, 228, 0, 180)
+
+	UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(137, 0, 254)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(223, 0, 255))}
+	UIGradient.Parent = Gradient
+
+	UICorner.CornerRadius = UDim.new(0, 4)
+	UICorner.Parent = Gradient
+
+	LoopDetector.Name = "Loop Detector"
+	LoopDetector.Parent = Gradient
+	LoopDetector.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	LoopDetector.BackgroundTransparency = 1.000
+	LoopDetector.Size = UDim2.new(0, 228, 0, 50)
+	LoopDetector.Font = Enum.Font.SourceSans
+	LoopDetector.Text = "Loop Detector"
+	LoopDetector.TextColor3 = Color3.fromRGB(0, 0, 0)
+	LoopDetector.TextSize = 24.000
+
+	player.Name = "player"
+	player.Parent = Gradient
+	player.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	player.BackgroundTransparency = 1.000
+	player.Position = UDim2.new(0, 0, 0.416666657, 0)
+	player.Size = UDim2.new(0, 228, 0, 50)
+	player.Font = Enum.Font.SourceSans
+	player.Text = ""
+	player.TextColor3 = Color3.fromRGB(0, 0, 0)
+	player.TextSize = 16.000
+
+	-- Scripts:
+
+	local function CYBH_fake_script() -- Gradient.LocalScript 
+		local script = Instance.new('LocalScript', Gradient)
+
+		local UIS = game:GetService("UserInputService")
+		function dragify(Frame)
+			dragToggle = nil
+			local dragSpeed = 0
+			dragInput = nil
+			dragStart = nil
+			local dragPos = nil
+			function updateInput(input)
+				local Delta = input.Position - dragStart
+				local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+				game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
+			end
+			Frame.InputBegan:Connect(function(input)
+				if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+					dragToggle = true
+					dragStart = input.Position
+					startPos = Frame.Position
+					input.Changed:Connect(function()
+						if input.UserInputState == Enum.UserInputState.End then
+							dragToggle = false
+						end
+					end)
+				end
+			end)
+			Frame.InputChanged:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+					dragInput = input
+				end
+			end)
+			game:GetService("UserInputService").InputChanged:Connect(function(input)
+				if input == dragInput and dragToggle then
+					updateInput(input)
+				end
+			end)
+		end
+
+		dragify(script.Parent)
+	end
+	coroutine.wrap(CYBH_fake_script)()
+
+	coroutine.wrap(function()
+		game:GetService("RunService").RenderStepped:connect(function()
+			pcall(function()
+				if game.Players.LocalPlayer.Character.Humanoid:FindFirstChild("creator") then
+					player.Text = tostring(game.Players.LocalPlayer.Character.Humanoid.creator.Value).." Is a skid"
+				elseif not game.Players.LocalPlayer.Character.Humanoid:FindFirstChild("creator") then
+					player.Text = ''
+				end
+			end)
+		end)
+	end)()
+
+	coroutine.wrap(function()
+		game:GetService("RunService").RenderStepped:connect(function()
+			if player.Text ~= '' then
+				game.ReplicatedStorage.Remotes.Human_Punch:FireServer(game.Players.LocalPlayer.Character.RightHand, "RightPunch", workspace[tostring(game.Players.LocalPlayer.Character.Humanoid:FindFirstChild("creator").Value)].UpperTorso,5,true,"RightPunch",game.Players.LocalPlayer.Backpack.Boxing.Handle.Hit,5)
+				game.ReplicatedStorage.Remotes.Human_Punch:FireServer(game.Players.LocalPlayer.Character.LeftHand, "LeftPunch", workspace[tostring(game.Players.LocalPlayer.Character.Humanoid:FindFirstChild("creator").Value)].UpperTorso,5,true,"LeftPunch",game.Players.LocalPlayer.Backpack.Boxing.Handle.Hit,5)
+			else
+			end
+		end)
+	end)()
+end)
+
+ToggleNight.Name = "Toggle Night"
+ToggleNight.Parent = MiscFrame
+ToggleNight.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+ToggleNight.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ToggleNight.BorderSizePixel = 0
+ToggleNight.Position = UDim2.new(0.0303030312, 0, 0.13149026, 0)
+ToggleNight.Size = UDim2.new(0, 86, 0, 40)
+ToggleNight.Font = Enum.Font.Bangers
+ToggleNight.Text = "Toggle Night"
+ToggleNight.TextColor3 = Color3.fromRGB(26, 218, 170)
+ToggleNight.TextSize = 16.000
+
+StrengthSpy.Name = "Strength Spy"
+StrengthSpy.Parent = MiscFrame
+StrengthSpy.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+StrengthSpy.BorderColor3 = Color3.fromRGB(0, 0, 0)
+StrengthSpy.BorderSizePixel = 0
+StrengthSpy.Position = UDim2.new(0.580086589, 0, 0.13132222, 0)
+StrengthSpy.Size = UDim2.new(0, 86, 0, 40)
+StrengthSpy.Font = Enum.Font.Bangers
+StrengthSpy.Text = "Strength Spy"
+StrengthSpy.TextColor3 = Color3.fromRGB(26, 218, 170)
+StrengthSpy.TextSize = 17.000
+StrengthSpy.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/sPnR6SiF"))() 
+end)
+
+InfoFrame.Name = "InfoFrame"
+InfoFrame.Parent = MainFrame
+InfoFrame.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+InfoFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+InfoFrame.BorderSizePixel = 0
+InfoFrame.Position = UDim2.new(0.344413608, 0, 0.311038345, 0)
+InfoFrame.Size = UDim2.new(0, 231, 0, 168)
+
+TextLabel_2.Parent = InfoFrame
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.0637722239, 0, 0.146401912, 0)
+TextLabel_2.Size = UDim2.new(0, 200, 0, 50)
+TextLabel_2.Font = Enum.Font.Bangers
+TextLabel_2.Text = "Made By Ashplayesbrb"
+TextLabel_2.TextColor3 = Color3.fromRGB(26, 218, 170)
+TextLabel_2.TextSize = 20.000
+
+TextLabel_3.Parent = InfoFrame
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+TextLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.BorderSizePixel = 0
+TextLabel_3.Position = UDim2.new(0.0637722239, 0, 0.551163793, 0)
+TextLabel_3.Size = UDim2.new(0, 200, 0, 50)
+TextLabel_3.Font = Enum.Font.Bangers
+TextLabel_3.Text = "More Updates soon!!!"
+TextLabel_3.TextColor3 = Color3.fromRGB(26, 218, 170)
+TextLabel_3.TextSize = 20.000
+
+FarmPageButton.Name = "FarmPageButton"
+FarmPageButton.Parent = MainFrame
+FarmPageButton.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+FarmPageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+FarmPageButton.BorderSizePixel = 0
+FarmPageButton.Position = UDim2.new(0.0235917103, 0, 0.296308309, 0)
+FarmPageButton.Size = UDim2.new(0, 106, 0, 50)
+FarmPageButton.Font = Enum.Font.Bangers
+FarmPageButton.Text = "FarmPage"
+FarmPageButton.TextColor3 = Color3.fromRGB(26, 218, 170)
+FarmPageButton.TextSize = 20.000
+
+UICorner_3.Parent = FarmPageButton
+
+InfoPageButton.Name = "InfoPageButton"
+InfoPageButton.Parent = MainFrame
+InfoPageButton.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+InfoPageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+InfoPageButton.BorderSizePixel = 0
+InfoPageButton.Position = UDim2.new(0.0235917103, 0, 0.749247253, 0)
+InfoPageButton.Size = UDim2.new(0, 106, 0, 50)
+InfoPageButton.Font = Enum.Font.Bangers
+InfoPageButton.Text = "InfoPage"
+InfoPageButton.TextColor3 = Color3.fromRGB(26, 218, 170)
+InfoPageButton.TextSize = 20.000
+
+UICorner_4.Parent = InfoPageButton
+
+MiscPageButton.Name = "MiscPageButton"
+MiscPageButton.Parent = MainFrame
+MiscPageButton.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+MiscPageButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MiscPageButton.BorderSizePixel = 0
+MiscPageButton.Position = UDim2.new(0.0235917103, 0, 0.529012024, 0)
+MiscPageButton.Size = UDim2.new(0, 106, 0, 50)
+MiscPageButton.Font = Enum.Font.Bangers
+MiscPageButton.Text = "MiscPage"
+MiscPageButton.TextColor3 = Color3.fromRGB(26, 218, 170)
+MiscPageButton.TextSize = 20.000
+
+UICorner_5.Parent = MiscPageButton
+
+Open.Name = "Open"
+Open.Parent = ScreenGui
+Open.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+Open.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Open.BorderSizePixel = 0
+Open.Position = UDim2.new(0, 0, 0.379396975, 0)
+Open.Size = UDim2.new(0, 200, 0, 50)
+Open.Font = Enum.Font.Bangers
+Open.Text = "Whippet Hub"
+Open.TextColor3 = Color3.fromRGB(26, 218, 170)
+Open.TextSize = 24.000
+
+UICorner_6.Parent = Open
+
+-- Scripts:
+
+local function STYHBZ_fake_script() -- FarmPageButton.LocalScript 
+	local script = Instance.new('LocalScript', FarmPageButton)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.FarmFrame.Visible = true
+		script.Parent.Parent.MiscFrame.Visible = false
+		script.Parent.Parent.InfoFrame.Visible = false
+		wait(0.1)
+	end)
+end
+coroutine.wrap(STYHBZ_fake_script)()
+local function AYQGPKT_fake_script() -- InfoPageButton.LocalScript 
+	local script = Instance.new('LocalScript', InfoPageButton)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.FarmFrame.Visible = false
+		script.Parent.Parent.MiscFrame.Visible = false
+		script.Parent.Parent.InfoFrame.Visible = true
+		wait(0.1)
+	end)
+end
+coroutine.wrap(AYQGPKT_fake_script)()
+local function MGNA_fake_script() -- MiscPageButton.LocalScript 
+	local script = Instance.new('LocalScript', MiscPageButton)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.FarmFrame.Visible = false
+		script.Parent.Parent.MiscFrame.Visible = true
+		script.Parent.Parent.InfoFrame.Visible = false
+		wait(0.1)
+	end)
+end
+coroutine.wrap(MGNA_fake_script)()
+local function JBLNI_fake_script() -- Open.LocalScript 
+	local script = Instance.new('LocalScript', Open)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		local MainFrame = script.Parent.Parent.MainFrame
+		local Button = script.Parent
+		if MainFrame.Visible == false then
+			MainFrame.Visible = true
+			Button.Text = "Close"
+		else
+			MainFrame.Visible = false
+			Button.Text = "Open"
+		end
+	end)
+end
+coroutine.wrap(JBLNI_fake_script)()
